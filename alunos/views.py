@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Aluno
 
 # Create your views here.
@@ -24,3 +24,7 @@ def criar_aluno(request):
         #redirecione para a pagina inicial
         return redirect('criar_aluno')
         
+def deletar_aluno(request, id):
+    aluno = get_object_or_404(Aluno, id=id)
+    aluno.delete()
+    return redirect('criar_aluno')
