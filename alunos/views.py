@@ -5,8 +5,10 @@ from .models import Aluno
 def criar_aluno(request):
     #caso o metodo seja get
     if request.method == 'GET':
+        #obtenha todos os dados do banco de dados
+        alunos = Aluno.objects.all()
         #retorne a pagina inicial
-        return render(request, 'criar_aluno.html')
+        return render(request, 'criar_aluno.html', {'alunos':alunos})
     #caso seja posr
     elif request.method =='POST':
         #capture os dados inseridos nos campos

@@ -11,7 +11,7 @@
   <body>
 
     <div class="container">
-      <!--criando formulario-->
+      <!--formulario-->
       <form action="{% url 'criar_aluno' %}" method="POST"> {% csrf_token %}
         <br><br>
         <!--campo nome-->
@@ -25,6 +25,27 @@
         <!--botao de enviar-->
         <button class="btn btn-success">Cadastrar aluno</button>
       </form>
+
+      <hr>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--mostra todos os usuarios do banco de dados-->
+          {% for aluno in alunos %}
+          <tr>
+            <td>{{aluno.nome}}</td>
+            <td>{{aluno.email}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
     </div>
 
     <!--script bootstrap-->
