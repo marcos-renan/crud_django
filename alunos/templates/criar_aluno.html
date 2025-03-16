@@ -12,7 +12,7 @@
 
     <div class="container">
       <!--criando formulario-->
-      <form action="" method="POST">
+      <form action="{% url 'criar_aluno' %}" method="POST"> {% csrf_token %}
         <br><br>
         <!--campo nome-->
         <label for="nome">Nome: </label>
@@ -23,10 +23,11 @@
         <input type="email" name="email" id="email" class="form-control" placeholder="Seu melhor email">
         <br>
         <!--botao de enviar-->
-        <button class="btn btn-success">Cadastrar aluno.</button>
+        <button class="btn btn-success">Cadastrar aluno</button>
       </form>
     </div>
-    
+
+    <!--script bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 
