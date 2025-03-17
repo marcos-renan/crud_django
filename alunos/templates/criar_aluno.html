@@ -33,18 +33,29 @@
           <tr>
             <th scope="col">Nome</th>
             <th scope="col">Email</th>
-            <th scope="col">Deletar</th>
             <th scope="col">Editar</th>
+            <th scope="col">Deletar</th>
           </tr>
         </thead>
         <tbody>
           <!--mostra todos os usuarios do banco de dados-->
           {% for aluno in alunos %}
           <tr>
-            <td>{{aluno.nome}}</td>
-            <td>{{aluno.email}}</td>
+            <td>
+              <form action="{% url 'editar_aluno' aluno.id %}" method="post"> {% csrf_token %}
+                <!--nome-->
+                <input type="text" name="nome" value="{{aluno.nome}}" class="form-control">
+              </td>
+              <td>
+                <!--email-->
+                <input type="email" name="email" value="{{aluno.email}}" class="form-control">
+              </td>
+              <td>
+                <!--btn editar-->
+                <input type="submit" value="Editar" class="btn btn-primary">
+              </form>
+            </td>
             <td><a href="{% url 'deletar_aluno' aluno.id %}" class="btn btn-danger">Deletar</a></td>
-            <td><a href="" class="btn btn-secondary">Editar</a></td>
           </tr>
           {% endfor %}
         </tbody>

@@ -28,3 +28,17 @@ def deletar_aluno(request, id):
     aluno = get_object_or_404(Aluno, id=id)
     aluno.delete()
     return redirect('criar_aluno')
+
+def editar_aluno(request, id):
+    #obtem os dados do banco
+    aluno = get_object_or_404(Aluno, id=id)
+    #pega os valores dos campos
+    nome = request.POST.get('nome')
+    email = request.POST.get('email')
+    #atribui novos valores
+    aluno.nome = nome
+    aluno.email = email
+    #salva no banco
+    aluno.save()
+    #redireciona para a pagina inicial
+    return redirect('criar_aluno')
