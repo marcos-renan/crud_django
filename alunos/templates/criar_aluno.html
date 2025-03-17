@@ -38,10 +38,11 @@
           </tr>
         </thead>
         <tbody>
-          <!--mostra todos os usuarios do banco de dados-->
+          <!--'for' mostra todos os usuarios do banco de dados-->
           {% for aluno in alunos %}
           <tr>
             <td>
+              <!--form para atualizar alunos-->
               <form action="{% url 'editar_aluno' aluno.id %}" method="post"> {% csrf_token %}
                 <!--nome-->
                 <input type="text" name="nome" value="{{aluno.nome}}" class="form-control">
